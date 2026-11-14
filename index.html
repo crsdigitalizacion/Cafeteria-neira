@@ -30,7 +30,7 @@
 <style>
 /* Neira se enciende: su fachada real de día; al deslizar cae la noche, se encienden las luces de dentro y aparece encendiéndose el neón del logo
    (pelo verde como su logo, cara y letras en blanco cálido). Texto crema, botones rojo vermú. */
-:root{color-scheme:dark;
+:root{color-scheme:dark;--bar:0px;
   --night:#170E08; --cream:#F7EBDD; --muted:#E2D2C0; --vermut:#9E1328; --neon-green:#3EF2BE;
   --display:'DM Serif Display', Georgia, serif; --body:'Instrument Sans', system-ui, -apple-system, sans-serif;
   --ease:cubic-bezier(.2,.8,.2,1);
@@ -53,7 +53,7 @@ a{color:inherit;text-decoration:none}
 .btn-line{border:1.5px solid rgba(247,235,221,.6);background:rgba(0,0,0,.2);backdrop-filter:blur(4px)}
 .top .btn{padding:10px 18px;font-size:15px}
 .story{position:relative;height:170vh}
-.stage{position:sticky;top:0;height:100vh;height:100dvh;overflow:hidden;background:#222}
+.stage{position:sticky;top:0;height:100vh;height:100lvh;overflow:hidden;background:#222}
 #cv{position:absolute;inset:0;width:100%;height:100%}
 .shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.25) 0%,transparent 22%,transparent 50%,rgba(0,0,0,.7) 100%)}
 .night-glow{position:absolute;inset:0;pointer-events:none;opacity:0;background:radial-gradient(40% 50% at var(--nx,30%) 46%,rgba(62,242,190,.18),transparent 70%)}
@@ -66,13 +66,13 @@ a{color:inherit;text-decoration:none}
 .neon .tube.on .glow{opacity:.6}
 .neon .hair .glow path{stroke:var(--neon-green)} .neon .hair .tube.on .core path{stroke:#D4FFF2}
 .neon .line .glow path{stroke:#FFB36B} .neon .line .tube.on .core path{stroke:#FFE6C2}
-.hint{position:absolute;z-index:5;left:50%;bottom:calc(4.5vh + env(safe-area-inset-bottom,0px));transform:translateX(-50%);width:max-content;max-width:calc(100% - 32px);display:flex;align-items:center;gap:12px;font-weight:600;font-size:16px;color:#F7EBDD;background:rgba(29,18,11,.78);border:1px solid rgba(247,235,221,.22);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:10px 18px 10px 14px;border-radius:999px;transition:opacity .4s}
+.hint{position:absolute;z-index:5;left:50%;bottom:calc(4.5vh + env(safe-area-inset-bottom,0px) + var(--bar,0px));transform:translateX(-50%);width:max-content;max-width:calc(100% - 32px);display:flex;align-items:center;gap:12px;font-weight:600;font-size:16px;color:#F7EBDD;background:rgba(29,18,11,.78);border:1px solid rgba(247,235,221,.22);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:10px 18px 10px 14px;border-radius:999px;transition:opacity .4s}
 .hint i{flex:none;transform:scale(.9)}
 .hint i{width:24px;height:38px;border:2px solid #fff;border-radius:14px;position:relative}
 .hint i::after{content:"";position:absolute;left:50%;top:7px;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:#fff;animation:wheel 1.6s var(--ease) infinite}
 @keyframes wheel{0%{transform:translateY(0);opacity:1}70%{transform:translateY(12px);opacity:0}100%{opacity:0}}
 .intro{position:absolute;left:0;right:0;top:calc(84px + env(safe-area-inset-top,0px));text-align:center;font-weight:700;font-size:clamp(12px,1.2vw,14px);letter-spacing:.3em;text-transform:uppercase;color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.6);transition:opacity .5s}
-.welcome{position:absolute;z-index:4;left:0;right:0;bottom:calc(6vh + env(safe-area-inset-bottom,0px));opacity:0;pointer-events:none}
+.welcome{position:absolute;z-index:4;left:0;right:0;bottom:calc(6vh + env(safe-area-inset-bottom,0px) + var(--bar,0px));opacity:0;pointer-events:none}
 .welcome.on{pointer-events:auto}
 .welcome h1{font-family:var(--display);font-weight:400;font-size:clamp(44px,6.4vw,96px);line-height:1;text-shadow:0 4px 30px rgba(0,0,0,.7)}
 .welcome h1 em{color:#FFD7A8}
@@ -186,7 +186,7 @@ footer{background:#170E08;padding-block:clamp(50px,7vw,80px) calc(30px + env(saf
 /* ---------- carta: libro que se abre ---------- */
 #pg-carta{background:#24170F}
 .bk-story{position:relative;height:230vh}
-.bk-stage{position:sticky;top:0;height:100vh;height:100dvh;overflow:hidden;display:grid;place-items:center;perspective:2200px;background:radial-gradient(60% 50% at 50% 55%,#3A2618 0,#24170F 70%)}
+.bk-stage{position:sticky;top:0;height:100vh;height:100lvh;overflow:hidden;display:grid;place-items:center;perspective:2200px;background:radial-gradient(60% 50% at 50% 55%,#3A2618 0,#24170F 70%)}
 .bk{--w:min(500px,40vw,calc((100svh - 150px)/1.42));position:relative;width:calc(var(--w)*2);height:calc(var(--w)*1.42);transform-style:preserve-3d;transform:translateX(calc(var(--w)*-.5*(1 - var(--o,0)))) rotateX(calc(14deg*(1 - var(--o,0)))) scale(calc(.9 + .1*var(--o,0)));margin-top:40px}
 .bk-page{position:absolute;left:50%;top:0;width:50%;height:100%;background:#F6EFE3;border-radius:4px 14px 14px 4px;box-shadow:inset 18px 0 30px -18px rgba(60,35,20,.45),0 30px 60px -25px rgba(0,0,0,.9);overflow:hidden;color:#1E2A22}
 .bk-page::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 80% at 80% 10%,rgba(255,255,255,.6),transparent 60%),repeating-linear-gradient(0deg,rgba(120,90,60,.035) 0 1px,transparent 1px 4px);pointer-events:none}
@@ -213,7 +213,7 @@ footer{background:#170E08;padding-block:clamp(50px,7vw,80px) calc(30px + env(saf
 .mp-price{margin-top:auto;display:flex;align-items:center;gap:12px;background:#1E4A35;color:#F6EFE3;padding:10px 14px;border-radius:4px}
 .mp-price b{font-family:var(--display);font-weight:400;font-size:calc(var(--w)*.1);line-height:1;white-space:nowrap}
 .mp-price span{font-size:11px;line-height:1.35;color:#D7E6DD}
-.bk-hint{position:absolute;bottom:calc(22px + env(safe-area-inset-bottom,0px));left:0;right:0;margin:auto;width:max-content;max-width:calc(100% - 32px);display:flex;align-items:center;gap:12px;font-weight:600;font-size:16px;color:#F7EBDD;background:rgba(29,18,11,.82);border:1px solid rgba(247,235,221,.2);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:10px 18px 10px 14px;border-radius:999px;transition:opacity .4s;text-align:left}
+.bk-hint{position:absolute;bottom:calc(22px + env(safe-area-inset-bottom,0px) + var(--bar,0px));left:0;right:0;margin:auto;width:max-content;max-width:calc(100% - 32px);display:flex;align-items:center;gap:12px;font-weight:600;font-size:16px;color:#F7EBDD;background:rgba(29,18,11,.82);border:1px solid rgba(247,235,221,.2);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:10px 18px 10px 14px;border-radius:999px;transition:opacity .4s;text-align:left}
 .bk-hint i{flex:none}
 .bk-hint i{width:22px;height:34px;border:2px solid #E2D2C0;border-radius:12px;position:relative}
 .bk-hint i::after{content:"";position:absolute;left:50%;top:6px;width:4px;height:7px;margin-left:-2px;border-radius:2px;background:#E2D2C0;animation:wheel 1.6s var(--ease) infinite}
@@ -357,6 +357,7 @@ footer{background:#170E08;padding-block:clamp(50px,7vw,80px) calc(30px + env(saf
 .tbd{background:#F2D46B;color:#24170F;padding:0 4px;border-radius:3px}
 .legal .tbd-note{font-size:14px;color:#24170F;background:#F2D46B;padding:10px 14px;border-radius:10px;display:inline-block}
 .rs-note a{color:#F7EBDD;text-decoration:underline;text-underline-offset:3px}
+@supports (height:100lvh){:root{--bar:calc(100lvh - 100dvh)}}
 </style>
 
 <header class="top pad" id="top">
@@ -627,7 +628,7 @@ const IMG={parrillada:'a/img/parrillada.jpg',huevos:'a/img/huevos.jpg',tabla:'a/
   let W,H,dpr, prog=0, target=0, loaded=0;
   const imgs=FRAMES.map(src=>{const i=new Image(); i.onload=()=>{loaded++; if(loaded===FRAMES.length){$('#loading').classList.add('done');}}; i.src=src; return i;});
   setTimeout(()=>$('#loading').classList.add('done'),2500);
-  function size(){dpr=Math.min(devicePixelRatio||1,2); W=stage.clientWidth; H=stage.clientHeight; cv.width=W*dpr; cv.height=H*dpr;}
+  function size(){const nw=stage.clientWidth, nh=stage.clientHeight; if(nw===W&&nh===H) return; dpr=Math.min(devicePixelRatio||1,2); W=nw; H=nh; cv.width=W*dpr; cv.height=H*dpr; if(imgs) draw();}
   function measure(){const total=story.offsetHeight-innerHeight; target=clamp(-story.getBoundingClientRect().top/total,0,1);}
   function cover(img,alpha){ if(!img.complete||!img.naturalWidth) return;
     const iw=img.naturalWidth, ih=img.naturalHeight;
