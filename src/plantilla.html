@@ -378,8 +378,11 @@ footer{background:#2A190F;padding-block:clamp(50px,7vw,80px) calc(30px + env(saf
  .hint{bottom:calc(16px + var(--nav) + var(--bar,0px))}
  .welcome{bottom:calc(20px + var(--nav) + var(--bar,0px))}
  .bk-hint{bottom:calc(16px + var(--nav) + var(--bar,0px))}
- .bk{--w:min(86vw,calc((100svh - 230px)/1.42))}
+ .bk{--w:min(86vw,calc((100svh - 236px)/1.42));margin-top:0}
+ .mp{gap:calc(var(--w)*.014);padding:7% 7% 6%}.mp-price{padding:8px 12px}
+ .bk-stage{box-sizing:border-box;padding:calc(64px + env(safe-area-inset-top,0px)) 0 calc(var(--nav) + var(--bar,0px) + 66px)}
 }
+@media (max-width:760px) and (max-height:700px){.mp-c li,.mp-c p{font-size:calc(var(--w)*.037)}.mp-k{display:none}}
 </style>
 
 <header class="top pad" id="top">
