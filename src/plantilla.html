@@ -335,6 +335,33 @@ footer{background:#170E08;padding-block:clamp(50px,7vw,80px) calc(30px + env(saf
 .legal .tbd-note{font-size:14px;color:#24170F;background:#F2D46B;padding:10px 14px;border-radius:10px;display:inline-block}
 .rs-note a{color:#F7EBDD;text-decoration:underline;text-underline-offset:3px}
 @supports (height:100lvh){:root{--bar:calc(100lvh - 100dvh)}}
+.rvw-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.score{display:flex;align-items:center;gap:14px}
+.score b{font-family:var(--display);font-weight:400;font-size:clamp(54px,6vw,76px);line-height:1;color:#FFE6C2}
+.score small{display:block;color:#CDB8A5;font-size:14px;margin-top:4px}
+.stars{display:flex;gap:3px}
+.stars svg{width:18px;height:18px;fill:rgba(247,235,221,.15);transition:fill .3s,filter .3s,transform .4s var(--ease)}
+.stars.sm svg{width:20px;height:20px}
+.stars .half{position:relative;display:inline-block;width:20px;height:20px;overflow:hidden}
+.stars .half svg{fill:rgba(247,235,221,.15)}
+.stars .half::after{content:"";position:absolute;inset:0;width:50%;background:transparent}
+.stars.on svg,.rvc.in .stars svg{fill:#F6B94A;filter:drop-shadow(0 0 6px rgba(246,185,74,.55))}
+.stars.on .half svg{fill:url(#halfStar)}
+.rvc .stars svg{transform:scale(.6)}
+.rvc.in .stars svg{transform:none}
+.rvc.in .stars svg:nth-child(2){transition-delay:.08s}.rvc.in .stars svg:nth-child(3){transition-delay:.16s}.rvc.in .stars svg:nth-child(4){transition-delay:.24s}.rvc.in .stars svg:nth-child(5){transition-delay:.32s}
+.rvw-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,1.8vw,24px);margin-top:clamp(28px,4vw,46px)}
+.rvc{margin:0;background:#2E1E14;border:1px solid rgba(247,235,221,.09);border-radius:20px;padding:clamp(20px,2.4vw,30px);display:flex;flex-direction:column;gap:16px;opacity:0;transform:translateY(34px) rotate(-1.2deg);transition:opacity .7s var(--ease),transform .8s var(--ease)}
+.rvc:nth-child(even){transform:translateY(34px) rotate(1.2deg)}
+.rvc.in{opacity:1;transform:none}
+.rvc blockquote{font-family:var(--display);font-size:clamp(19px,1.7vw,23px);line-height:1.35;color:#F7EBDD;flex:1}
+.rvc figcaption{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.rvc .av{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#3E6B57;color:#E9FFF8;font-weight:700}
+.rvc figcaption b{font-weight:600}.rvc figcaption small{color:#A8927E;font-size:13px;width:100%;margin-left:46px;margin-top:-8px}
+.rvw-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+@media (max-width:760px){.rvw-list{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px));scroll-padding-inline:max(16px,env(safe-area-inset-left,0px));scrollbar-width:none;padding-bottom:6px}
+ .rvw-list::-webkit-scrollbar{display:none}.rvc{flex:0 0 84%;scroll-snap-align:start}.rvw-ctas .btn{flex:1 1 100%;justify-content:center}}
+@media (prefers-reduced-motion:reduce){.rvc{opacity:1;transform:none!important;transition:none}.rvc .stars svg{transform:none}}
 </style>
 
 <header class="top pad" id="top">
@@ -358,7 +385,7 @@ footer{background:#170E08;padding-block:clamp(50px,7vw,80px) calc(30px + env(saf
       <div class="shade"></div>
       <div class="night-glow" id="glow"></div>
       <svg class="neon" id="neon" viewBox="{{VB}}" aria-hidden="true">
-        <defs><filter id="blur" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="6"/></filter></defs>
+        <defs><linearGradient id="halfStar"><stop offset="50%" stop-color="#F6B94A"/><stop offset="50%" stop-color="rgba(247,235,221,.15)"/></linearGradient><filter id="blur" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="6"/></filter></defs>
         {{NEON}}
       </svg>
       <p class="intro" id="intro">Cafetería Neira · Albia de Castro, 10 · Logroño</p>
@@ -385,7 +412,18 @@ footer{background:#170E08;padding-block:clamp(50px,7vw,80px) calc(30px + env(saf
     </div>
   </section>
 
-  <section class="sec alt pad h-short" aria-labelledby="t2">
+  <section class="sec alt pad rvw" aria-labelledby="tr4">
+    <div class="wrap">
+      <div class="rvw-head">
+        <div><span class="kick rv">Lo que dicen en Google</span><h2 class="h2 rv" id="tr4">Los que ya <span class="nl">han venido</span></h2></div>
+        <div class="score rv" aria-label="4,3 de 5 estrellas en Google, 388 reseñas"><b>4,3</b><div><div class="stars sm on"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><span class="half"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg></span></div><small>388 reseñas en Google</small></div></div>
+      </div>
+      <div class="rvw-list" id="rvwList"><figure class="rvc"><div class="stars" aria-label="5 de 5 estrellas"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg></div><blockquote>«La reforma y el sitio muy acogedor y espectacular, el trato magnífico y la barra muy muy apetecible! Lo recomiendo cien por cien! […] A desayunar, a comer e incluso viendo el fútbol y apoyando a la selección. Repetiré seguro.»</blockquote><figcaption><span class="av" aria-hidden="true">Á</span><b>Álvaro D.</b><small>Para desayunar · Google</small></figcaption></figure><figure class="rvc"><div class="stars" aria-label="5 de 5 estrellas"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg></div><blockquote>«Nos decidimos a probar su nuevo menú del día y desde el principio nos sentimos como en casa. El ambiente y el servicio excelente, la atención de Sergio fue inmejorable. Repetiremos sin duda.»</blockquote><figcaption><span class="av" aria-hidden="true">M</span><b>Mario L.</b><small>Menú del día · Google</small></figcaption></figure><figure class="rvc"><div class="stars" aria-label="5 de 5 estrellas"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg></div><blockquote>«Acabamos de probar el recién estrenado menú del día. De lujo. Todo casero y buenísimo […] El ambiente que hay es inmejorable, un lugar cálido y acogedor. Terraza en dos frentes para todos los gustos.»</blockquote><figcaption><span class="av" aria-hidden="true">S</span><b>Samuel B.</b><small>Menú del día · Google</small></figcaption></figure><figure class="rvc"><div class="stars" aria-label="5 de 5 estrellas"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.9l-5.2 2.7 1-5.8L1.6 7.7l5.8-.8z"/></svg></div><blockquote>«Pedí varias hamburguesas y la carne es espectacular, con un sabor increíble y en su punto exacto. […] El personal es muy profesional y atento. ¡Para repetir sin duda!»</blockquote><figcaption><span class="av" aria-hidden="true">A</span><b>Aran</b><small>Hamburguesas · Google</small></figcaption></figure></div>
+      <div class="ctas rvw-ctas rv"><a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&query=Cafeter%C3%ADa+Neira+Albia+de+Castro+10+Logro%C3%B1o" target="_blank" rel="noopener">Ver todas las reseñas</a><a class="btn btn-red" href="https://www.google.com/maps/search/?api=1&query=Cafeter%C3%ADa+Neira+Albia+de+Castro+10+Logro%C3%B1o" target="_blank" rel="noopener">Dejar una reseña</a></div>
+    </div>
+  </section>
+
+  <section class="sec pad h-short" aria-labelledby="t2">
     <div class="wrap">
       <span class="kick rv">Desde hace más de 50 años</span>
       <h2 class="h2 hist-q" id="t2" aria-label="No cambiar lo que funciona."><span class="w">«No</span> <span class="w">cambiar</span> <br> <span class="w g">lo</span> <span class="w g">que</span> <span class="w g">funciona.»</span></h2>
@@ -394,7 +432,7 @@ footer{background:#170E08;padding-block:clamp(50px,7vw,80px) calc(30px + env(saf
     </div>
   </section>
 
-  <section class="sec pad c-short" aria-labelledby="t3">
+  <section class="sec alt pad c-short" aria-labelledby="t3">
     <div class="wrap cs-in">
       <div><span class="kick rv">Dónde estamos</span>
       <h2 class="h2 rv" id="t3">En la esquina de <span class="nl">Albia de Castro</span></h2>
@@ -812,4 +850,10 @@ const IMG={parrillada:'{{parrillada}}',huevos:'{{huevos}}',tabla:'{{tabla}}',ham
   $('#rs').addEventListener('submit',e=>e.preventDefault());
   go(0);
 })();
+
+/* reseñas: aparecen una a una y se encienden las estrellas */
+(()=>{const list=document.getElementById('rvwList'); if(!list)return; const cs=[...list.children];
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){cs.forEach(c=>c.classList.add('in'));return;}
+  const io=new IntersectionObserver(es=>{if(!es[0].isIntersecting)return; io.disconnect(); cs.forEach((c,i)=>setTimeout(()=>c.classList.add('in'),i*180));},{threshold:.25});
+  io.observe(list);})();
 </script>
