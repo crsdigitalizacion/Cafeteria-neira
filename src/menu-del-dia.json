@@ -1,0 +1,6 @@
+{"titulo":"Menú del día","cuando":"De lunes a viernes · mediodía","precio":"19,50 €","iva":"IVA incluido",
+"incluye":"Un primero, un segundo, pan, bebida (agua, vino de la casa y gaseosa) y postre o café.",
+"primeros":["Caparrones riojanos con sus sacramentos","Ensalada templada de queso de cabra, bacon crujiente y emulsión de frambuesa","Cardo con bechamel suave y nueces","Arroz a la cubana"],
+"segundos":["Codillo confitado a fuego lento","Dorada asada al horno","Albóndigas al estilo de la abuela","Pollo guisado en salsa de champiñones"],
+"postres":["Natillas con galleta María","Comtessa bañada en Nutella","Tarta de queso estilo La Viña","Arroz con leche","Fruta de temporada"],
+"pie":"Cocina casera con producto de temporada","alergenos":"Información sobre alérgenos: consulte con nuestro personal."}
