@@ -30,7 +30,7 @@ a{color:inherit;text-decoration:none}
 .btn-line{border:1.5px solid rgba(247,235,221,.6);background:rgba(0,0,0,.2);backdrop-filter:blur(4px)}
 .top .btn{padding:10px 18px;font-size:15px}
 .story{position:relative;height:170vh}
-.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#222}
+.stage{position:sticky;top:0;height:100vh;height:100dvh;overflow:hidden;background:#222}
 #cv{position:absolute;inset:0;width:100%;height:100%}
 .shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.25) 0%,transparent 22%,transparent 50%,rgba(0,0,0,.7) 100%)}
 .night-glow{position:absolute;inset:0;pointer-events:none;opacity:0;background:radial-gradient(40% 50% at var(--nx,30%) 46%,rgba(62,242,190,.18),transparent 70%)}
@@ -163,7 +163,7 @@ footer{background:#170E08;padding-block:clamp(50px,7vw,80px) calc(30px + env(saf
 /* ---------- carta: libro que se abre ---------- */
 #pg-carta{background:#24170F}
 .bk-story{position:relative;height:230vh}
-.bk-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:grid;place-items:center;perspective:2200px;background:radial-gradient(60% 50% at 50% 55%,#3A2618 0,#24170F 70%)}
+.bk-stage{position:sticky;top:0;height:100vh;height:100dvh;overflow:hidden;display:grid;place-items:center;perspective:2200px;background:radial-gradient(60% 50% at 50% 55%,#3A2618 0,#24170F 70%)}
 .bk{--w:min(500px,40vw,calc((100svh - 150px)/1.42));position:relative;width:calc(var(--w)*2);height:calc(var(--w)*1.42);transform-style:preserve-3d;transform:translateX(calc(var(--w)*-.5*(1 - var(--o,0)))) rotateX(calc(14deg*(1 - var(--o,0)))) scale(calc(.9 + .1*var(--o,0)));margin-top:40px}
 .bk-page{position:absolute;left:50%;top:0;width:50%;height:100%;background:#F6EFE3;border-radius:4px 14px 14px 4px;box-shadow:inset 18px 0 30px -18px rgba(60,35,20,.45),0 30px 60px -25px rgba(0,0,0,.9);overflow:hidden;color:#1E2A22}
 .bk-page::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 80% at 80% 10%,rgba(255,255,255,.6),transparent 60%),repeating-linear-gradient(0deg,rgba(120,90,60,.035) 0 1px,transparent 1px 4px);pointer-events:none}
@@ -327,6 +327,13 @@ footer{background:#170E08;padding-block:clamp(50px,7vw,80px) calc(30px + env(saf
 .rs-nav .btn{min-width:130px;justify-content:center}
 .rs-note{margin-top:20px;color:#A8927E;font-size:14px;line-height:1.5}.rs-note b{color:#F7EBDD;user-select:all}
 .rs-msg{color:#CDB8A5;margin-top:12px}
+.flegal{display:flex;gap:16px}.flegal a{color:#CDB8A5;text-decoration:underline;text-underline-offset:3px}
+.legal{padding-block:0 clamp(70px,9vw,120px)}.legal .wrap{max-width:760px}
+.legal h2{font-family:var(--display);font-weight:400;font-size:clamp(24px,2.4vw,30px);margin:34px 0 10px}
+.legal p,.legal li{color:#E2D2C0;line-height:1.65;font-size:16px}.legal ul{padding-left:20px;display:grid;gap:6px}
+.tbd{background:#F2D46B;color:#24170F;padding:0 4px;border-radius:3px}
+.legal .tbd-note{font-size:14px;color:#24170F;background:#F2D46B;padding:10px 14px;border-radius:10px;display:inline-block}
+.rs-note a{color:#F7EBDD;text-decoration:underline;text-underline-offset:3px}
 </style>
 
 <header class="top pad" id="top">
@@ -478,8 +485,8 @@ footer{background:#170E08;padding-block:clamp(50px,7vw,80px) calc(30px + env(saf
           <div class="row2"><small>Dirección</small><b>C. Albia de Castro, 10<br>26003 Logroño</b></div>
           <div class="row2"><small>Horario</small><b>Lunes a jueves 8:00–23:00<br>Viernes 8:00–24:00<br>Sábado 9:00–24:00<br>Domingo 9:00–23:00</b></div>
           <div class="row2"><small>Teléfono</small><b>676 619 582</b></div>
-          <div class="row2"><small>Instagram</small><b>@barneiraoficial</b></div>
-          <div class="ctas"><a class="btn btn-red" href="https://wa.me/34676619582" target="_blank" rel="noopener">Reservar por WhatsApp</a><a class="btn btn-line btn-sm" href="tel:+34676619582">Llamar</a><a class="btn btn-line btn-sm" href="https://www.instagram.com/barneiraoficial/" target="_blank" rel="noopener">Instagram</a></div>
+          <div class="row2"><small>Opiniones</small><b>¿Ya nos conoces? Cuéntalo en Google</b></div>
+          <div class="ctas"><a class="btn btn-red" href="https://wa.me/34676619582" target="_blank" rel="noopener">Reservar por WhatsApp</a><a class="btn btn-line btn-sm" href="tel:+34676619582">Llamar</a><a class="btn btn-line btn-sm" href="https://www.google.com/maps/search/?api=1&query=Cafeter%C3%ADa+Neira+Albia+de+Castro+10+Logro%C3%B1o" target="_blank" rel="noopener">Reseñas en Google</a></div>
         </div>
       </div>
     </div>
@@ -514,10 +521,53 @@ footer{background:#170E08;padding-block:clamp(50px,7vw,80px) calc(30px + env(saf
           <button type="button" class="btn btn-red" id="rsNext">Siguiente</button>
           <a class="btn btn-red rs-send" id="rsSend" href="#" target="_blank" rel="noopener" hidden>Enviar por WhatsApp</a>
         </div>
+        <p class="rs-note">Tus datos solo se usan para gestionar la reserva por WhatsApp. Más información en la <a href="#privacidad">política de privacidad</a>.</p>
         <p class="rs-note">La mesa queda reservada cuando el bar te conteste por WhatsApp. ¿Prefieres llamar? <b>676 619 582</b></p>
       </form>
     </div>
   </section>
+</div>
+
+<div class="page" id="pg-aviso-legal" hidden>
+  <header class="pg-head pad"><div class="wrap"><span class="kick">Legal</span><h1 class="h2">Aviso legal</h1></div></header>
+  <section class="pad legal"><div class="wrap">
+    <p class="tbd-note">Los datos marcados en amarillo están pendientes de confirmar con el titular del negocio.</p>
+    <h2>Titular de la web</h2>
+    <p>En cumplimiento del artículo 10 de la Ley 34/2002, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa de los datos del titular de esta web:</p>
+    <ul><li><b>Titular:</b> <mark class="tbd">Nombre o razón social</mark></li><li><b>NIF / CIF:</b> <mark class="tbd">00000000X</mark></li><li><b>Domicilio:</b> C. Albia de Castro, 10, 26003 Logroño (La Rioja)</li><li><b>Teléfono:</b> 676 619 582</li><li><b>Correo electrónico:</b> <mark class="tbd">correo@ejemplo.com</mark></li></ul>
+    <h2>Uso de la web</h2>
+    <p>Esta web informa sobre la Cafetería Neira: su carta, su menú del día, su historia, su horario y la forma de reservar. Quien la visita se compromete a hacer un uso adecuado de sus contenidos.</p>
+    <h2>Propiedad intelectual</h2>
+    <p>Los textos, fotografías, logotipo y diseño de esta web pertenecen a su titular o se usan con permiso. No se pueden reproducir con fines comerciales sin autorización.</p>
+    <h2>Precios y carta</h2>
+    <p>La carta y el menú del día pueden cambiar según el producto de temporada. Los precios vigentes son los que se indican en el propio local.</p>
+    <h2>Enlaces externos</h2>
+    <p>La web enlaza con servicios de terceros, como WhatsApp o Google Maps. El titular no se hace responsable del contenido ni de las condiciones de esos servicios.</p>
+    <h2>Legislación aplicable</h2>
+    <p>Este aviso legal se rige por la legislación española.</p>
+  </div></section>
+</div>
+
+<div class="page" id="pg-privacidad" hidden>
+  <header class="pg-head pad"><div class="wrap"><span class="kick">Legal</span><h1 class="h2">Política de privacidad</h1></div></header>
+  <section class="pad legal"><div class="wrap">
+    <p class="tbd-note">Los datos marcados en amarillo están pendientes de confirmar con el titular del negocio.</p>
+    <h2>Responsable del tratamiento</h2>
+    <p><mark class="tbd">Nombre o razón social</mark>, con NIF <mark class="tbd">00000000X</mark> y domicilio en C. Albia de Castro, 10, 26003 Logroño. Contacto: 676 619 582 · <mark class="tbd">correo@ejemplo.com</mark>.</p>
+    <h2>Qué datos se tratan y para qué</h2>
+    <p>Cuando reservas desde esta web, el formulario prepara un mensaje con el día, la hora, el número de personas, tu nombre y, si quieres, una nota. Ese mensaje se envía por WhatsApp desde tu propio teléfono. La web no guarda ni envía estos datos a ningún otro sitio.</p>
+    <p>El bar usa los datos que recibe por WhatsApp o por teléfono solo para gestionar tu reserva y contestarte.</p>
+    <h2>Base legal</h2>
+    <p>El consentimiento que das al enviar el mensaje y la gestión de la reserva que solicitas.</p>
+    <h2>Cuánto tiempo se guardan</h2>
+    <p>El tiempo necesario para gestionar la reserva. Después se eliminan, salvo que una ley obligue a conservarlos.</p>
+    <h2>Con quién se comparten</h2>
+    <p>Con nadie, salvo obligación legal. Al usar WhatsApp, sus propias condiciones de privacidad se aplican a la comunicación.</p>
+    <h2>Tus derechos</h2>
+    <p>Puedes pedir acceder a tus datos, corregirlos, borrarlos, limitar su uso u oponerte a él escribiendo a <mark class="tbd">correo@ejemplo.com</mark> o en el propio local. Si crees que no se han respetado tus derechos, puedes reclamar ante la Agencia Española de Protección de Datos (aepd.es).</p>
+    <h2>Cookies</h2>
+    <p>Esta web no usa cookies propias ni de publicidad. Para mostrar las tipografías se cargan desde Google Fonts, que puede registrar datos técnicos de la conexión, como la dirección IP.</p>
+  </div></section>
 </div>
 
 <div class="dlg" id="dlg" hidden role="dialog" aria-modal="true" aria-labelledby="dlgT">
@@ -537,10 +587,11 @@ footer{background:#170E08;padding-block:clamp(50px,7vw,80px) calc(30px + env(saf
 <footer class="pad">
   <div class="wrap">
     <div class="fbig" aria-hidden="true">Neira</div>
-    <div class="fcols"><span>Cafetería Neira · C. Albia de Castro, 10 · Logroño</span><span>Propuesta de web por <a href="https://crsdigital.es" target="_blank" rel="noopener" style="color:#E9FFF8">CRS Digital</a></span></div>
+    <div class="fcols"><span>Cafetería Neira · C. Albia de Castro, 10 · Logroño</span><span class="flegal"><a href="#aviso-legal">Aviso legal</a><a href="#privacidad">Privacidad</a></span><span>Propuesta de web por <a href="https://crsdigital.es" target="_blank" rel="noopener" style="color:#E9FFF8">CRS Digital</a></span></div>
   </div>
 </footer>
 
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "CafeOrCoffeeShop", "name": "Cafetería Neira", "description": "El bar de toda la vida de Lobete, en Logroño: calamares, vermú de grifo, menú del día, terraza y fútbol en pantalla grande.", "telephone": "+34 676 619 582", "priceRange": "10-20 €", "servesCuisine": ["Española", "Riojana", "Tapas"], "acceptsReservations": true, "address": {"@type": "PostalAddress", "streetAddress": "C. Albia de Castro, 10", "postalCode": "26003", "addressLocality": "Logroño", "addressRegion": "La Rioja", "addressCountry": "ES"}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"], "opens": "08:00", "closes": "23:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "08:00", "closes": "24:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "24:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "09:00", "closes": "23:00"}]}</script>
 <script>
 const MOB=innerWidth<innerHeight&&innerWidth<900;
 const FRAMES=MOB?{{FRAMESM}}:{{FRAMES}};
@@ -592,7 +643,7 @@ const IMG={parrillada:'{{parrillada}}',huevos:'{{huevos}}',tabla:'{{tabla}}',ham
     const w=$('#welcome'), wIn=seg(p,.74,.88); w.style.opacity=wIn; w.style.transform=`translateY(${(1-wIn)*30}px)`; w.classList.toggle('on',wIn>.5);
   }
   function loop(){ prog+=(target-prog)*(RM?1:.12); draw(); requestAnimationFrame(loop);}
-  addEventListener('scroll',()=>{measure(); $('#top').classList.toggle('solid',(document.body.dataset.page&&document.body.dataset.page!=='inicio')||scrollY>story.offsetHeight-innerHeight*.6);},{passive:true}); addEventListener('resize',()=>{size();measure();});
+  addEventListener('scroll',()=>{measure(); $('#top').classList.toggle('solid',(document.body.dataset.page&&document.body.dataset.page!=='inicio')||scrollY>story.offsetHeight-innerHeight*.6);},{passive:true}); addEventListener('resize',()=>{size();measure();}); if('ResizeObserver' in window) new ResizeObserver(()=>{size();measure();}).observe(stage);
   size(); measure(); requestAnimationFrame(loop);
   $$('img[data-k]').forEach(i=>i.src=IMG[i.dataset.k]);
   // secciones: aparecen al llegar y el trozo verde del titular parpadea como un neón
@@ -621,8 +672,8 @@ const IMG={parrillada:'{{parrillada}}',huevos:'{{huevos}}',tabla:'{{tabla}}',ham
 (()=>{
   const $=s=>document.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
   const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const pages={inicio:$('#pg-inicio'),carta:$('#pg-carta'),historia:$('#pg-historia'),contacto:$('#pg-contacto'),reservar:$('#pg-reservar')}, tr=$('#tr'), ttubes=$$('#tr .tube');
-  const routeOf=h=>{h=(h||'').replace('#','');return ['carta','historia','contacto','reservar'].includes(h)?h:'inicio'};
+  const pages={inicio:$('#pg-inicio'),carta:$('#pg-carta'),historia:$('#pg-historia'),contacto:$('#pg-contacto'),reservar:$('#pg-reservar'),'aviso-legal':$('#pg-aviso-legal'),privacidad:$('#pg-privacidad')}, tr=$('#tr'), ttubes=$$('#tr .tube');
+  const routeOf=h=>{h=(h||'').replace('#','');return ['carta','historia','contacto','reservar','aviso-legal','privacidad'].includes(h)?h:'inicio'};
   let page=null, busy=false;
   function show(p){Object.entries(pages).forEach(([k,el])=>el.hidden=k!==p); page=p; document.body.dataset.page=p;
     $('#top').classList.toggle('solid',p!=='inicio'||scrollY>$('#story').offsetHeight-innerHeight*.6);
