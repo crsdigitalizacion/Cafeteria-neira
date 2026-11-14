@@ -10,5 +10,6 @@ out=t.replace('{{NEON}}',neon).replace('{{VB}}',d['vb']).replace('{{FRAMESM}}',j
 for n in ['parrillada','huevos','tabla','hamburguesa','estofado','ensalada','logo','logo-m','fachada-wide']:
     out=out.replace('{{%s}}'%n,'data:image/jpeg;base64,'+base64.b64encode(open(f'img/{n}-v2.jpg' if n in ('parrillada','huevos','tabla','hamburguesa','estofado','ensalada') else f'img/{n}.jpg','rb').read()).decode())
 assert '{{' not in out, re.findall(r'\{\{[\w-]+\}\}',out)
+out=out.replace('<title>Neira Se Enciende</title>','<title>Cafetería Neira · Logroño</title>')
 open('../index.html','w').write(HEAD+out+'\n</body>\n</html>\n')
 print(len(out)//1024,'KB')
