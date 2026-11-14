@@ -387,6 +387,24 @@ footer{background:#2A190F;padding-block:clamp(50px,7vw,80px) calc(30px + env(saf
 @media (max-width:760px){.rvw-list{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px));scroll-padding-inline:max(16px,env(safe-area-inset-left,0px));scrollbar-width:none;padding-bottom:6px}
  .rvw-list::-webkit-scrollbar{display:none}.rvc{flex:0 0 84%;scroll-snap-align:start}.rvw-ctas .btn{flex:1 1 100%;justify-content:center}}
 @media (prefers-reduced-motion:reduce){.rvc{opacity:1;transform:none!important;transition:none}.rvc .stars svg{transform:none}}
+.bnav{display:none}
+@media (max-width:760px){
+ :root{--nav:calc(62px + env(safe-area-inset-bottom,0px))}
+ .bnav{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:repeat(4,1fr) 1.25fr;align-items:stretch;height:var(--nav);padding:0 max(6px,env(safe-area-inset-right,0px)) env(safe-area-inset-bottom,0px) max(6px,env(safe-area-inset-left,0px));background:rgba(42,25,15,.92);backdrop-filter:blur(14px) saturate(1.2);-webkit-backdrop-filter:blur(14px) saturate(1.2);border-top:1px solid rgba(247,235,221,.12)}
+ .bnav a{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:11.5px;font-weight:600;color:#CDB8A5;-webkit-tap-highlight-color:transparent}
+ .bnav svg{width:22px;height:22px}
+ .bnav a[aria-current]{color:#F7EBDD}
+ .bnav a[aria-current]::before{content:"";position:absolute;top:7px;right:calc(50% - 17px);width:6px;height:6px;border-radius:50%;background:var(--neon-green);box-shadow:0 0 8px var(--neon-green)}
+ .bnav .bn-res{margin:8px 0 8px 4px;border-radius:14px;background:var(--vermut);color:#2A190F;font-size:12.5px;font-weight:700;box-shadow:0 8px 22px -10px rgba(233,162,59,.7)}
+ .bnav .bn-res[aria-current]{color:#2A190F;box-shadow:0 0 0 2px #F7EBDD inset}
+ .bnav .bn-res[aria-current]::before{display:none}
+ .top .top-r{display:none}
+ body{padding-bottom:var(--nav)}
+ .hint{bottom:calc(16px + var(--nav) + var(--bar,0px))}
+ .welcome{bottom:calc(20px + var(--nav) + var(--bar,0px))}
+ .bk-hint{bottom:calc(16px + var(--nav) + var(--bar,0px))}
+ .bk{--w:min(86vw,calc((100svh - 230px)/1.42))}
+}
 </style>
 
 <header class="top pad" id="top">
@@ -402,6 +420,7 @@ footer{background:#2A190F;padding-block:clamp(50px,7vw,80px) calc(30px + env(saf
   </div>
 </header>
 
+<nav class="bnav" aria-label="Secciones"><a href="#inicio" data-nav="inicio" class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>Inicio</span></a><a href="#carta" data-nav="carta" class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h11a3 3 0 0 1 3 3v13H7a3 3 0 0 1-3-3z"/><path d="M8 8h6M8 12h6M8 16h4"/></svg><span>Carta</span></a><a href="#historia" data-nav="historia" class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Historia</span></a><a href="#contacto" data-nav="contacto" class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Contacto</span></a><a href="#reservar" data-nav="reservar" class="bn-res"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span>Reservar</span></a></nav>
 <main>
 <div class="page" id="pg-inicio">
   <div class="story" id="story">
@@ -741,7 +760,7 @@ const IMG={parrillada:'a/img/parrillada.jpg',huevos:'a/img/huevos.jpg',tabla:'a/
   let page=null, busy=false;
   function show(p){Object.entries(pages).forEach(([k,el])=>el.hidden=k!==p); page=p; document.body.dataset.page=p;
     $('#top').classList.toggle('solid',p!=='inicio'||scrollY>$('#story').offsetHeight-innerHeight*.6);
-    $$('.top nav a, .mmenu a').forEach(a=>a.toggleAttribute('aria-current',a.dataset.nav===p));
+    $$('.top nav a, .mmenu a, .bnav a').forEach(a=>a.toggleAttribute('aria-current',a.dataset.nav===p));
     dispatchEvent(new Event('resize'));
     if(!RM&&p!=='inicio') $$('.casc',pages[p]).forEach(c=>{c.classList.add('pre'); setTimeout(()=>c.classList.remove('pre'),1300);});}
   function jump(h){scrollTo(0,0);}
