@@ -15,7 +15,7 @@ Propuesta de web para la **Cafetería Neira** (C. Albia de Castro, 10 · Lobete,
 
 ## Cómo verla
 
-Publicada con GitHub Pages en https://crsdigitalizacion.github.io/cafeteria-neira/
+Publicada con GitHub Pages en https://crsdigitalizacion.github.io/Cafeteria-neira/
 
 La web es `index.html` más la carpeta `a/` (fotos y fotogramas de los vídeos). El móvil solo descarga los fotogramas del vídeo vertical y el ordenador los del horizontal, así que carga mucho más rápido que con todo metido en un solo archivo.
 
